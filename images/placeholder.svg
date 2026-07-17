@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" role="img" aria-label="Image placeholder">
+<rect width="800" height="450" fill="#E8EEF1"/>
+<rect x="1" y="1" width="798" height="448" fill="none" stroke="#B7C4CC" stroke-width="2" stroke-dasharray="10 8"/>
+<g fill="#8A9BA6">
+<circle cx="330" cy="200" r="34"/>
+<path d="M250 300 L340 220 L400 270 L470 200 L560 300 Z"/>
+</g>
+<text x="400" y="360" font-family="Arial, sans-serif" font-size="22" fill="#6B7C87" text-anchor="middle" font-weight="bold">Add image here</text>
+<text x="400" y="390" font-family="Arial, sans-serif" font-size="15" fill="#8A9BA6" text-anchor="middle">Replace this file with your own photo</text>
+</svg>

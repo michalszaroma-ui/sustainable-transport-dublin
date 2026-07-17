@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Ines -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="The Luas tram network in Dublin: routes, statistics and environmental benefits.">
+  <title>Luas - Sustainable Transport in Dublin</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+/* Sustainable Transport in Dublin - CA2 stylesheet */
+/* Michal: index, cycling, calculator | Ines: luas, buses, survey */
+
+/* reset */
+/* Michal */
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+/* base */
+/* Michal */
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 16px;
+  line-height: 1.6;
+  color: #222;
+  background-color: #f7f9f8;
+}
+
+img { max-width: 100%; height: auto; display: block; }
+
+a { color: #2e7d32; }
+
+h1, h2, h3, h4 { color: #1b5e20; line-height: 1.3; }
+
+.container { max-width: 1000px; margin: 0 auto; padding: 0 20px; }
+
+/* accessibility */
+/* Michal */
+.skip-link {
+  position: absolute; left: -999px; top: 0; z-index: 999;
+  background: #1b5e20; color: #fff; padding: 10px 16px;
+}
+.skip-link:focus { left: 0; }
+
+a:focus, button:focus, input:focus, select:focus {
+  outline: 2px solid #2e7d32; outline-offset: 2px;
+}
+
+/* header and navigation */
+/* Michal */
+header.site {
+  background: #fff;
+  border-bottom: 1px solid #ddd;
+}
+.header-top {
+  max-width: 1000px; margin: 0 auto; padding: 14px 20px;
+  display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap;
+}
+.logo { display: flex; align-items: center; gap: 12px; text-decoration: none; }
+.logo-mark {
+  width: 42px; height: 42px; border-radius: 6px; background: #2e7d32;
+  display: flex; align-items: center; justify-content: center; color: #fff;
+  font-weight: bold; font-size: 1.1rem; flex: none;
+}
+.logo-text { font-weight: bold; color: #1b5e20; font-size: 1.1rem; line-height: 1.1; }
+.logo-text small { display: block; font-weight: normal; font-size: .72rem; color: #666; }
+
+.sdg-tag {
+  background: #e8f5e9; border: 1px solid #c8e6c9; color: #1b5e20;
+  font-size: .78rem; font-weight: bold; padding: 5px 12px; border-radius: 4px;
+}
+
+nav.main { background: #2e7d32; }
+nav.main ul {
+  max-width: 1000px; margin: 0 auto; padding: 0 20px;
+  list-style: none; display: flex; flex-wrap: wrap;
+}
+nav.main a {
+  display: block; color: #fff; text-decoration: none;
+  padding: 12px 16px; font-size: .95rem;
+}
+nav.main a:hover { background: #1b5e20; }
+nav.main a.active { background: #1b5e20; font-weight: bold; }
+
+/* top banner */
+/* Michal */
+.hero {
+  background: #2e7d32; color: #fff; padding: 44px 20px; text-align: center;
+}
+.hero .container { max-width: 1000px; }
+.hero h1 { color: #fff; font-size: 2rem; margin-bottom: 12px; }
+.hero p { font-size: 1.1rem; max-width: 640px; margin: 0 auto 20px; }
+
+.page-banner { background: #1b5e20; color: #fff; padding: 30px 20px; }
+.page-banner h1 { color: #fff; font-size: 1.8rem; }
+.page-banner p { margin-top: 6px; }
+
+/* buttons */
+/* Michal */
+.btn {
+  display: inline-block; margin: 4px; background: #fff; color: #1b5e20;
+  padding: 10px 22px; border-radius: 4px; text-decoration: none; font-weight: bold;
+  border: 2px solid #fff; cursor: pointer; font-size: 1rem;
+}
+.btn:hover { background: #e8f5e9; }
+.btn-teal { background: #1b5e20; color: #fff; border-color: #1b5e20; }
+.btn-teal:hover { background: #14481a; }
+
+/* main content sections */
+/* Michal */
+main { display: block; background: #fff; }
+.section {
+  max-width: 1000px; margin: 0 auto; padding: 34px 20px; border-bottom: 1px solid #e2e6e4;
+}
+.section:last-child { border-bottom: none; }
+.section h2 { font-size: 1.5rem; margin-bottom: 8px; }
+.section h3 { font-size: 1.15rem; margin: 18px 0 6px; color: #2e7d32; }
+.section p { margin-bottom: 12px; }
+
+/* grey band */
+.section.tint { background: #f2f6f3; max-width: none; }
+.section.tint > .container { max-width: 1000px; margin: 0 auto; padding: 0; }
+
+.eyebrow {
+  display: inline-block; color: #2e7d32; font-weight: bold;
+  font-size: .8rem; text-transform: uppercase; margin-bottom: 4px;
+}
+
+/* sdg badges */
+/* Michal */
+.sdg-badge {
+  display: inline-block; background: #e8f5e9; color: #1b5e20;
+  border: 1px solid #c8e6c9; padding: 4px 12px; border-radius: 4px;
+  font-size: .82rem; font-weight: bold; margin: 0 6px 10px 0;
+}
+.sdg-badge.climate { background: #e3f2fd; color: #1565c0; border-color: #bbdefb; }
+
+/* fact box */
+/* Michal */
+.fact-box {
+  background: #e8f5e9; border-left: 4px solid #2e7d32;
+  padding: 14px 18px; border-radius: 4px; margin: 16px 0;
+}
+.fact-box strong { color: #1b5e20; }
+
+/* figures */
+/* Michal */
+figure { margin: 18px 0; }
+figure img { width: 100%; border-radius: 6px; border: 1px solid #ddd; }
+figcaption { font-size: .85rem; color: #666; margin-top: 6px; font-style: italic; }
+
+/* cards */
+/* Michal */
+.cards { display: flex; flex-wrap: wrap; gap: 18px; margin-top: 16px; }
+.card {
+  flex: 1 1 280px; background: #fff; border: 1px solid #ddd;
+  border-radius: 6px; padding: 20px;
+}
+.card .icon {
+  width: 48px; height: 48px; border-radius: 50%; background: #e8f5e9;
+  display: flex; align-items: center; justify-content: center; font-size: 1.4rem; margin-bottom: 10px;
+}
+.card h3 { margin: 0 0 8px; font-size: 1.1rem; color: #1b5e20; }
+.card p { font-size: .95rem; color: #555; margin-bottom: 10px; }
+.card a { font-weight: bold; text-decoration: none; color: #2e7d32; }
+.card a:hover { text-decoration: underline; }
+
+/* two column layout */
+/* Ines */
+.two-col { display: flex; flex-wrap: wrap; gap: 24px; margin: 16px 0; align-items: flex-start; }
+.two-col aside {
+  flex: 0 0 240px; background: #f2f6f3; border: 1px solid #ddd; border-radius: 6px; padding: 20px;
+}
+.two-col aside h3 { margin-top: 0; }
+.col-main { flex: 1; min-width: 260px; }
+
+ul.content-list, ol.content-list { padding-left: 22px; margin: 10px 0; }
+ul.content-list li, ol.content-list li { margin-bottom: 8px; }
+
+/* tables */
+/* Ines */
+.table-wrap { overflow-x: auto; margin: 16px 0; }
+table { width: 100%; border-collapse: collapse; background: #fff; font-size: .95rem; border: 1px solid #ddd; }
+caption.table-caption { caption-side: top; text-align: left; font-size: .85rem; color: #666; padding: 8px 0; font-style: italic; }
+thead th { background: #2e7d32; color: #fff; text-align: left; padding: 10px 14px; font-size: .9rem; }
+tbody td { padding: 10px 14px; border-top: 1px solid #ddd; }
+tbody tr:nth-child(even) { background: #f2f6f3; }
+.source-note { font-size: .82rem; color: #666; margin-top: 6px; font-style: italic; }
+
+/* calculator */
+/* Michal */
+.calc-wrapper {
+  max-width: 520px; margin: 20px auto; background: #fff;
+  border: 1px solid #ddd; border-radius: 6px; padding: 26px;
+}
+.calc-wrapper h2 { margin-bottom: 6px; }
+.form-group { margin-bottom: 16px; }
+.form-group label { display: block; font-weight: bold; margin-bottom: 5px; }
+.form-group input, .form-group select {
+  width: 100%; padding: 10px 12px; border: 1px solid #bbb; border-radius: 4px; font-size: 1rem;
+}
+.calc-btn {
+  width: 100%; padding: 12px; background: #2e7d32; color: #fff; border: none;
+  border-radius: 4px; font-size: 1rem; font-weight: bold; cursor: pointer; margin-top: 4px;
+}
+.calc-btn:hover { background: #1b5e20; }
+
+#calcError {
+  display: none; margin-top: 12px; padding: 10px 12px; border-radius: 4px;
+  background: #fdecea; border: 1px solid #f5c6c0; color: #b3261e; font-size: .92rem;
+}
+#calcError.show { display: block; }
+
+#calcResult {
+  display: none; margin-top: 16px; padding: 18px; border-radius: 6px;
+  background: #e8f5e9; border: 1px solid #c8e6c9;
+}
+#calcResult h3 { margin: 0 0 10px; color: #1b5e20; }
+.result-row { display: flex; justify-content: space-between; padding: 6px 0; border-bottom: 1px dashed #c8e6c9; }
+.result-row span:last-child { font-weight: bold; }
+.result-total { margin-top: 12px; font-size: 1.25rem; font-weight: bold; color: #1b5e20; text-align: center; }
+.result-trees { text-align: center; color: #444; margin-top: 6px; }
+
+/* video and form */
+/* Ines */
+.embed { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; border-radius: 6px; border: 1px solid #ddd; margin: 16px 0; }
+.embed iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
+.survey-embed { border-radius: 6px; overflow: hidden; border: 1px solid #ddd; margin: 16px 0; }
+.survey-embed iframe { display: block; width: 100%; height: 820px; border: 0; }
+
+/* footer */
+/* Ines */
+footer.site { background: #1b5e20; color: #d7e8d9; margin-top: 20px; }
+.footer-grid {
+  max-width: 1000px; margin: 0 auto; padding: 30px 20px;
+  display: flex; flex-wrap: wrap; gap: 30px; justify-content: space-between;
+}
+.footer-grid h4 { color: #fff; font-size: .95rem; margin-bottom: 10px; }
+.footer-col a { display: block; color: #d7e8d9; text-decoration: none; margin-bottom: 7px; font-size: .92rem; }
+.footer-col a:hover { color: #fff; text-decoration: underline; }
+.footer-bottom { border-top: 1px solid #2e7d32; text-align: center; padding: 14px; font-size: .85rem; color: #a5c5a8; }
+
+/* mobile / responsive */
+/* Michal */
+@media (max-width: 700px) {
+  nav.main ul { flex-direction: column; }
+  .two-col aside { flex: 1 1 100%; }
+  .hero h1 { font-size: 1.5rem; }
+}
+@media (max-width: 520px) {
+  .card { flex: 1 1 100%; }
+}
+
+  </style>
+</head>
+<body>
+
+<a href="#main-content" class="skip-link">Skip to main content</a>
+
+<header class="site">
+  <div class="header-top">
+    <a href="index.html" class="logo">
+      <span class="logo-mark" aria-hidden="true">ST</span>
+      <span class="logo-text">Sustainable Transport<small>Dublin - SDG 11 &amp; 13</small></span>
+    </a>
+  </div>
+  <nav class="main" aria-label="Main navigation">
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="cycling.html">Cycling</a></li>
+      <li><a href="calculator.html">CO₂ Calculator</a></li>
+      <li><a href="luas.html" class="active" aria-current="page">Luas</a></li>
+      <li><a href="buses.html">Buses</a></li>
+      <li><a href="survey.html">Survey</a></li>
+    </ul>
+  </nav>
+</header>
+
+<div class="page-banner">
+  <div class="container">
+    <h1>The Luas Tram Network</h1>
+    <p>Routes, statistics and the environmental benefits of Dublin's light rail.</p>
+  </div>
+</div>
+
+<main id="main-content">
+  <div class="container">
+
+    <section class="section" id="luas-intro">
+      <span class="eyebrow">Overview</span>
+      <h2>The Luas Tram Network</h2>
+      <span class="sdg-badge">SDG 11 - Sustainable Cities</span>
+      <span class="sdg-badge climate">SDG 13 - Climate Action</span>
+      <p>Luas (Irish for "speed") is Dublin's light rail tram system, operated by Transdev on behalf of Transport Infrastructure Ireland (TII). It connects key areas of Dublin with a fast, frequent, and low-emission service. Since opening in 2004, the Luas has grown into one of the most heavily used tram systems in Europe relative to city size.</p>
+    </section>
+
+    <section class="section tint" id="luas-lines">
+      <span class="eyebrow">The network</span>
+      <h2>Luas Lines Overview</h2>
+      <div class="two-col">
+        <aside>
+          <h3>Green Line</h3>
+          <ul class="content-list">
+            <li><strong>Route:</strong> Broombridge to Bride's Glen</li>
+            <li><strong>Length:</strong> 26.8 km</li>
+            <li><strong>Stops:</strong> 37</li>
+            <li><strong>Frequency:</strong> Every 5–8 min (peak)</li>
+          </ul>
+          <h3 style="margin-top:18px;">Red Line</h3>
+          <ul class="content-list">
+            <li><strong>Route:</strong> The Point to Saggart / Tallaght</li>
+            <li><strong>Length:</strong> 21.7 km</li>
+            <li><strong>Stops:</strong> 34</li>
+            <li><strong>Frequency:</strong> Every 6–10 min (peak)</li>
+          </ul>
+        </aside>
+        <div class="col-main">
+          <h3>Luas Cross City Expansion (2017)</h3>
+          <p>The Luas Cross City project extended the Green Line northward through the city centre, linking it with the existing Red Line at O'Connell Street. This €368 million project completed in December 2017 was a transformative moment for Dublin public transport, creating a connected tram network through the heart of the capital.</p>
+          <h3>Why Trams are Sustainable</h3>
+          <ul class="content-list">
+            <li>Electric trams emit no exhaust fumes at point of use.</li>
+            <li>Each tram replaces up to 150–200 car journeys per trip.</li>
+            <li>Ireland's electricity grid is increasingly powered by wind energy, making trams greener over time.</li>
+            <li>Trams have a 30–40 year operational lifespan, reducing manufacturing emissions.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="luas-stats">
+      <span class="eyebrow">By the numbers</span>
+      <h2>Luas Performance Statistics</h2>
+      <div class="table-wrap">
+        <table>
+          <caption class="table-caption">Annual passengers, estimated CO₂ saved and punctuality, 2010–2023.</caption>
+          <thead><tr><th scope="col">Year</th><th scope="col">Annual Passengers</th><th scope="col">CO₂ Saved (estimated)</th><th scope="col">Punctuality Rate</th></tr></thead>
+          <tbody>
+            <tr><td>2010</td><td>26.3 million</td><td>~45,000 t</td><td>92%</td></tr>
+            <tr><td>2015</td><td>34.7 million</td><td>~59,000 t</td><td>93%</td></tr>
+            <tr><td>2019</td><td>41.2 million</td><td>~71,000 t</td><td>94%</td></tr>
+            <tr><td>2022</td><td>37.8 million</td><td>~65,000 t</td><td>93%</td></tr>
+            <tr><td>2023</td><td>40.1 million</td><td>~69,000 t</td><td>95%</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="source-note">Sources: Transport Infrastructure Ireland (TII) Annual Reports 2010–2023.</p>
+    </section>
+
+    <section class="section tint" id="luas-video">
+      <span class="eyebrow">Watch</span>
+      <h2>Luas in Action</h2>
+      <p>Watch this overview of the Luas network and its role in Dublin's sustainable transport strategy:</p>
+      <div class="embed">
+        <iframe src="https://www.youtube.com/embed/yvhMhqzFUwM" title="Overview of the Luas tram network in Dublin" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+      </div>
+    </section>
+
+    <section class="section" id="luas-future">
+      <span class="eyebrow">Next stops</span>
+      <h2>Future Plans - Luas Expansion</h2>
+      <ul class="content-list">
+        <li><strong>MetroLink:</strong> A new underground metro line planned to run from Swords to Sandyford, connecting with both Luas lines at key interchange points.</li>
+        <li><strong>Luas to Finglas:</strong> A proposed extension of the Green Line northward to serve the Finglas area of north Dublin.</li>
+        <li><strong>Fleet upgrade:</strong> Plans to introduce longer, higher-capacity trams to reduce overcrowding on the Green Line.</li>
+        <li><strong>Renewable energy:</strong> TII is exploring powering the Luas entirely from renewable electricity sources by 2030.</li>
+      </ul>
+    </section>
+
+  </div>
+</main>
+
+<footer class="site">
+  <div class="footer-grid">
+    <div class="footer-col" style="flex:1 1 260px;">
+      <h4>Sustainable Transport in Dublin</h4>
+      <p style="font-size:.9rem;">An H6WD Web Design &amp; Development project at the National College of Ireland, exploring SDG 11 &amp; 13 through Dublin's transport network.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Pages</h4>
+      <a href="index.html">Home</a>
+      <a href="cycling.html">Cycling</a>
+      <a href="calculator.html">CO₂ Calculator</a>
+      <a href="luas.html">Luas</a>
+      <a href="buses.html">Buses</a>
+      <a href="survey.html">Survey</a>
+    </div>
+    <div class="footer-col">
+      <h4>Learn more</h4>
+      <a href="https://sdgs.un.org/goals/goal11" target="_blank" rel="noopener">UN SDG 11 ↗</a>
+      <a href="https://sdgs.un.org/goals/goal13" target="_blank" rel="noopener">UN SDG 13 ↗</a>
+      <a href="https://www.transportforireland.ie/" target="_blank" rel="noopener">Transport for Ireland ↗</a>
+    </div>
+  </div>
+  <div class="footer-bottom">© 2026 Ines &amp; Michal · National College of Ireland</div>
+</footer>
+
+</body>
+</html>
