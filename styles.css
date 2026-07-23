@@ -224,7 +224,7 @@ footer.site { background: #1b5e20; color: #d7e8d9; margin-top: 20px; }
   max-width: 1000px; margin: 0 auto; padding: 30px 20px;
   display: flex; flex-wrap: wrap; gap: 30px; justify-content: space-between;
 }
-.footer-grid h4 { color: #fff; font-size: .95rem; margin-bottom: 10px; }
+.footer-grid .footer-heading { color: #fff; font-size: .95rem; margin-bottom: 10px; font-weight: bold; }
 .footer-col a { display: block; color: #d7e8d9; text-decoration: none; margin-bottom: 7px; font-size: .92rem; }
 .footer-col a:hover { color: #fff; text-decoration: underline; }
 .footer-bottom { border-top: 1px solid #2e7d32; text-align: center; padding: 14px; font-size: .85rem; color: #a5c5a8; }
