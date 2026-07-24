@@ -64,7 +64,7 @@
         <div class="form-group">
           <label for="mode">Switch to which transport mode?</label>
           <select id="mode">
-            <option value="">-Select a mode —</option>
+            <option value="">-Select a mode-</option>
             <option value="bus">Dublin Bus</option>
             <option value="luas">Luas</option>
             <option value="cycling">Cycling / Walking</option>
@@ -85,7 +85,7 @@
           <caption class="table-caption">CO₂ per km and annual saving vs a car, based on a 10 km daily commute.</caption>
           <thead><tr><th scope="col">Transport Mode</th><th scope="col">CO₂ per km (per passenger)</th><th scope="col">Annual saving vs car (10 km daily)</th></tr></thead>
           <tbody>
-            <tr><td>Private Car (petrol/diesel)</td><td>150 g</td><td>—</td></tr>
+            <tr><td>Private Car (petrol/diesel)</td><td>150 g</td><td>-</td></tr>
             <tr><td>Dublin Bus</td><td>18 g</td><td>~665 kg CO₂ / year</td></tr>
             <tr><td>Luas (tram)</td><td>9 g</td><td>~701 kg CO₂ / year</td></tr>
             <tr><td>DART / Rail</td><td>10 g</td><td>~700 kg CO₂ / year</td></tr>
@@ -124,57 +124,7 @@
   <div class="footer-bottom">© 2026 Ines &amp; Michal, National College of Ireland</div>
 </footer>
 
-<script>
-  /* ---------------------------------------------------------
-     CO2 Commute Calculator - Michal
-     Reads commute inputs from the DOM, validates them, and
-     writes the annual CO2 saving to the page with no reload.
-     --------------------------------------------------------- */
-  var emissionFactors = { car:150, bus:18, luas:9, cycling:0, dart:10 }; // g CO2 / passenger-km
-  var modeNames = { bus:"Dublin Bus", luas:"Luas", cycling:"Cycling / Walking", dart:"DART / Rail" };
-
-  var errorEl  = document.getElementById("calcError");
-  var resultEl = document.getElementById("calcResult");
-
-  function showError(msg) {
-    errorEl.textContent = msg; errorEl.classList.add("show");
-    resultEl.style.display = "none";
-  }
-
-  function calculateCO2() {
-    errorEl.textContent = ""; errorEl.classList.remove("show");
-    resultEl.style.display = "none";
-
-    var distance = parseFloat(document.getElementById("distance").value);
-    var days     = parseInt(document.getElementById("days").value, 10);
-    var mode     = document.getElementById("mode").value;
-
-    // Input validation
-    if (isNaN(distance) || distance <= 0) { showError("Please enter a commute distance greater than 0 km."); return; }
-    if (distance > 500)                   { showError("Please enter a realistic commute distance under 500 km."); return; }
-    if (isNaN(days) || days < 1 || days > 7) { showError("Please enter working days between 1 and 7."); return; }
-    if (mode === "")                      { showError("Please select a transport mode to switch to."); return; }
-
-    // Calculation (round trip x days x ~48 working weeks)
-    var yearlyKm = distance * 2 * days * 48;
-    var carCO2   = emissionFactors.car  * yearlyKm / 1000;   // kg
-    var modeCO2  = emissionFactors[mode] * yearlyKm / 1000;  // kg
-    var saving   = carCO2 - modeCO2;
-    var trees    = Math.max(0, Math.round(saving / 21));     // ~21 kg CO2 per tree / year
-
-    // Write result to the page
-    resultEl.innerHTML =
-      "<h3>Your Results</h3>" +
-      "<div class='result-row'><span>Round trip per day</span><span>" + (distance*2).toFixed(1) + " km</span></div>" +
-      "<div class='result-row'><span>Car emissions / year</span><span>" + carCO2.toFixed(0) + " kg CO₂</span></div>" +
-      "<div class='result-row'><span>" + modeNames[mode] + " / year</span><span>" + modeCO2.toFixed(0) + " kg CO₂</span></div>" +
-      "<div class='result-total'>You save " + saving.toFixed(0) + " kg CO₂ per year</div>" +
-      "<div class='result-trees'>🌳 That's like planting about " + trees + " trees a year (" + (saving/1000).toFixed(2) + " tonnes).</div>";
-    resultEl.style.display = "block";
-  }
-
-  document.getElementById("calcBtn").addEventListener("click", calculateCO2);
-</script>
+<script src="calculator.js"></script>
 
 </body>
 </html>
