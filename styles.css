@@ -227,7 +227,7 @@ footer.site { background: #1b5e20; color: #d7e8d9; margin-top: 20px; }
 .footer-grid .footer-heading { color: #fff; font-size: .95rem; margin-bottom: 10px; font-weight: bold; }
 .footer-col a { display: block; color: #d7e8d9; text-decoration: none; margin-bottom: 7px; font-size: .92rem; }
 .footer-col a:hover { color: #fff; text-decoration: underline; }
-.footer-bottom { border-top: 1px solid #2e7d32; text-align: center; padding: 14px; font-size: .85rem; color: #a5c5a8; }
+.footer-bottom { border-top: 1px solid #2e7d32; text-align: center; padding: 14px; font-size: .85rem; color: #d7e8d9; }
 
 /* mobile / responsive */
 /* Michal */
