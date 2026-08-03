@@ -161,6 +161,7 @@ figcaption { font-size: .85rem; color: #666; margin-top: 6px; font-style: italic
   flex: 0 0 240px; background: #f2f6f3; border: 1px solid #ddd; border-radius: 6px; padding: 20px;
 }
 .two-col aside h3 { margin-top: 0; }
+.two-col aside h3 + ul + h3 { margin-top: 18px; }
 .col-main { flex: 1; min-width: 260px; }
 
 ul.content-list, ol.content-list { padding-left: 22px; margin: 10px 0; }
